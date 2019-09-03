@@ -51,3 +51,12 @@ HeaderLinks.forEach((node, i) => {
 });
 let logo = document.getElementById('logo-img');
 logo.setAttribute('src', siteContent['nav']['img-src']);
+
+// CTA
+const ctaH1 = document.querySelector('.cta-text h1');
+const ctaButton = document.querySelector('.cta-text button');
+const ctaImg = document.querySelector('#cta-img');
+
+ctaH1.textContent = siteContent.cta.h1;
+ctaButton.textContent = siteContent.cta.button;
+ctaImg.setAttribute('src', siteContent.cta['img-src']);
