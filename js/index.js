@@ -70,3 +70,10 @@ MainContent.forEach((section, i) => {
   section.children[1].textContent = siteContent['main-content'][`${Headings[i]}-content`];
 });
 MainContentImage.setAttribute('src', siteContent['main-content']['middle-img-src']);
+
+// Contact
+const Contact = document.querySelector('.contact');
+console.log(Contact);
+for (let i = 0; i < Contact.children.length; i++) {
+  Contact.children[i].textContent = siteContent.contact[Object.keys(siteContent.contact)[i]];
+}
