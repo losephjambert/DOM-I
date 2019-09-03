@@ -42,14 +42,31 @@ const siteContent = {
   },
 };
 
+const createElement = (type, classes, id, textContent) => {
+  const el = document.createElement(type);
+  const content = document.createTextNode(textContent);
+
+  el.appendChild(content);
+  el.classList.add(...classes);
+  id = id || null;
+  if (id !== null) el.setAttribute('id', id);
+
+  return el;
+};
 // Example: Update the img src for the logo
 
 // Header
 const HeaderLinks = document.querySelectorAll('header nav a');
+const HeaderNav = document.querySelector('header nav');
 HeaderLinks.forEach((node, i) => {
   node.textContent = siteContent.nav[`nav-item-${i + 1}`];
   node.style.color = 'green';
 });
+
+// Header -- prepend an element
+
+// Header -- append a child element
+
 let logo = document.getElementById('logo-img');
 logo.setAttribute('src', siteContent['nav']['img-src']);
 
@@ -74,7 +91,6 @@ MainContentImage.setAttribute('src', siteContent['main-content']['middle-img-src
 
 // Contact
 const Contact = document.querySelector('.contact');
-console.log(Contact);
 for (let i = 0; i < Contact.children.length; i++) {
   Contact.children[i].textContent = siteContent.contact[Object.keys(siteContent.contact)[i]];
 }
