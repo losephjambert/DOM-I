@@ -60,3 +60,13 @@ const ctaImg = document.querySelector('#cta-img');
 ctaH1.textContent = siteContent.cta.h1;
 ctaButton.textContent = siteContent.cta.button;
 ctaImg.setAttribute('src', siteContent.cta['img-src']);
+
+// Main Content
+const Headings = ['features', 'about', 'services', 'product', 'vision'];
+const MainContent = document.querySelectorAll('.main-content .text-content');
+const MainContentImage = document.querySelector('#middle-img');
+MainContent.forEach((section, i) => {
+  section.children[0].textContent = siteContent['main-content'][`${Headings[i]}-h4`];
+  section.children[1].textContent = siteContent['main-content'][`${Headings[i]}-content`];
+});
+MainContentImage.setAttribute('src', siteContent['main-content']['middle-img-src']);
