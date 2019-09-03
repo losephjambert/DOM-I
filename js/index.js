@@ -42,30 +42,40 @@ const siteContent = {
   },
 };
 
-const createElement = (type, classes, id, textContent) => {
+const createElement = (type = 'div', textContent = '', classes = [], id = null) => {
   const el = document.createElement(type);
   const content = document.createTextNode(textContent);
 
   el.appendChild(content);
-  el.classList.add(...classes);
+  if (classes.length > 0) el.classList.add(...classes);
   id = id || null;
   if (id !== null) el.setAttribute('id', id);
+  if (type === 'a') el.setAttribute('href', '#');
 
   return el;
 };
 // Example: Update the img src for the logo
 
 // Header
-const HeaderLinks = document.querySelectorAll('header nav a');
 const HeaderNav = document.querySelector('header nav');
+const HeaderLinks = document.querySelectorAll('header nav a');
+
 HeaderLinks.forEach((node, i) => {
   node.textContent = siteContent.nav[`nav-item-${i + 1}`];
-  node.style.color = 'green';
 });
 
 // Header -- prepend an element
+const prependNavItem = createElement('a', 'Prepend');
+HeaderNav.prepend(prependNavItem);
 
 // Header -- append a child element
+const appendNavItem = createElement('a', 'Append');
+HeaderNav.appendChild(appendNavItem);
+
+// Header -- change nav items to green
+HeaderLinks.forEach(node => {
+  node.style.color = 'green';
+});
 
 let logo = document.getElementById('logo-img');
 logo.setAttribute('src', siteContent['nav']['img-src']);
