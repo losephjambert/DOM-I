@@ -77,3 +77,7 @@ console.log(Contact);
 for (let i = 0; i < Contact.children.length; i++) {
   Contact.children[i].textContent = siteContent.contact[Object.keys(siteContent.contact)[i]];
 }
+
+// Footer
+const Copyright = document.querySelector('footer p');
+Copyright.textContent = siteContent.footer.copyright;
