@@ -48,6 +48,7 @@ const siteContent = {
 const HeaderLinks = document.querySelectorAll('header nav a');
 HeaderLinks.forEach((node, i) => {
   node.textContent = siteContent.nav[`nav-item-${i + 1}`];
+  node.style.color = 'green';
 });
 let logo = document.getElementById('logo-img');
 logo.setAttribute('src', siteContent['nav']['img-src']);
